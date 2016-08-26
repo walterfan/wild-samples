@@ -1,14 +1,14 @@
 package com.github.walterfan.configuration;
 
-import javax.servlet.Filter;
-
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class HelloWorldInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+import javax.servlet.Filter;
+
+public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
  
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[] { HelloWorldConfiguration.class };
+        return new Class[] { AppConfiguration.class };
     }
   
     @Override

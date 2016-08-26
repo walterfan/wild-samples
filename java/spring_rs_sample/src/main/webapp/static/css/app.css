@@ -1,42 +1,65 @@
-body, #mainWrapper {
-	height: 70%;
-	background-color:rgb(245, 245, 245);
+body{
+  word-wrap: break-word;
+}
+.container {
+  margin-right: auto;
+  margin-left: auto;
+}
+.api-test-panel {
+  border-top: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  padding:15px;
 }
 
-body, .form-control{
-	font-size:12px!important;
+.phoneNumberPrefix{
+  float: left;
+  width:20%;
 }
-
-.floatRight{
-	float:right;
-	margin-right: 18px;
-}
-
-.has-error{
-	color:red;
-}
-
-.formcontainer{
-	background-color: #DAE8E8;
-	padding: 20px;
-}
-
-.tablecontainer{
-	padding-left: 20px;
-}
-
-.generic-container {
+.phoneNumber{
+  float: left;
   width:80%;
-  margin-left: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding: 20px;
-  background-color: #EAE7E7;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-shadow: 0 0 30px black;
+}
+.sipURI{
+  align:right;
+}
+.e2eCaseResult{
+  align:right;
+  font-weight: normal;
+  color: #999;
+}
+.message{
+  margin-bottom: 0px;
+}
+.cleanPaddingRight{
+  padding-right: 0px;
+}
+.cleanPaddingLeft{
+  padding-left: 0px;
+}
+.cleanMarginBottom{
+  margin-bottom: 0px;
+}
+textarea.editScriptHeight{
+  height:240px;
+}
+select[multiple].editScriptHeight{
+  height:240px;
+}
+.clip{
+  margin-top: 10px;
+  margin-left: -5px;
+}
+.logo{
+  margin-top:15px;
+  width:172px;
+  height:31px;
 }
 
-.custom-width {
-    width: 80px !important;
+textarea.showScriptHeight{
+  height:400px;
+}
+
+.ngdialog.ngdialog-theme-plain.custom-width .ngdialog-content {
+    width: 800px;
 }

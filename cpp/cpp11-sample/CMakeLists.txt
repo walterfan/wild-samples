@@ -18,3 +18,4 @@ else()
 endif()
 
 add_executable( ${PROJECT_NAME} main.cpp )
+add_executable( smartptr smartptr.cpp )

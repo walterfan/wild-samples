@@ -1,8 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-  <head>  
-    <title>AngularJS $http Example</title>  
+  <head>
+
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+      <meta name="description" content="Kanban">
+      <meta name="author" content="Walter">
+      <link rel="icon" href="./images/favicon.ico">
+
+      <title>Kanban Web Service</title>
+
     <style>
       .username.ng-valid {
           background-color: lightgreen;
@@ -25,8 +35,9 @@
       }
 
     </style>
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
+
+     <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"/>
+      <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"/>
   </head>
   <body ng-app="myApp" class="ng-cloak">
       <div class="generic-container" ng-controller="UserController as ctrl">
@@ -111,7 +122,7 @@
           </div>
       </div>
       
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+      <script src="<c:url value='/static/js/vendor/angular.js' />"></script>
       <script src="<c:url value='/static/js/app.js' />"></script>
       <script src="<c:url value='/static/js/service/user_service.js' />"></script>
       <script src="<c:url value='/static/js/controller/user_controller.js' />"></script>
