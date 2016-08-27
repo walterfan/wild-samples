@@ -1,4 +1,4 @@
-package com.github.walterfan;
+package com.github.walterfan.example;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
