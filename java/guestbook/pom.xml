@@ -39,6 +39,8 @@
         <mybatis-version>3.3.1</mybatis-version>
         <mybatis-spring-version>1.2.4</mybatis-spring-version>
 
+
+        <metrics.version>3.1.0</metrics.version>
         <!-- test libraries -->
         <junit.version>4.12</junit.version>
         <testng.version>6.8.7</testng.version>
@@ -158,7 +160,14 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- for testing -->
+        <!-- for metrics -->
+
+            <dependency>
+                <groupId>io.dropwizard.metrics</groupId>
+                <artifactId>metrics-core</artifactId>
+                <version>${metrics.version}</version>
+            </dependency>
+
 
         <!-- Spring Framework for testing -->
 
@@ -245,4 +254,76 @@
             </plugins>
         </pluginManagement>
     </build>
+
+
+    <profiles>
+
+        <profile>
+            <id>coverage</id>
+            <build>
+                <plugins>
+
+                    <plugin>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>jacoco-maven-plugin</artifactId>
+                        <version>${jacoco.version}</version>
+                        <executions>
+                            <!--
+                                Prepares the property pointing to the JaCoCo runtime agent which
+                                is passed as VM argument when Maven the Surefire plugin is executed.
+                            -->
+                            <execution>
+                                <id>pre-unit-test</id>
+                                <goals>
+                                    <goal>prepare-agent</goal>
+                                </goals>
+                                <configuration>
+                                    <!-- Sets the path to the file which contains the execution data. -->
+                                    <destFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</destFile>
+                                    <!--
+                                        Sets the name of the property containing the settings
+                                        for JaCoCo runtime agent.
+                                    -->
+                                    <propertyName>surefireArgLine</propertyName>
+                                </configuration>
+                            </execution>
+                            <!--
+                                Ensures that the code coverage report for unit tests is created after
+                                unit tests have been run.
+                            -->
+                            <execution>
+                                <id>post-unit-test</id>
+                                <phase>test</phase>
+                                <goals>
+                                    <goal>report</goal>
+                                </goals>
+                                <configuration>
+                                    <!-- Sets the path to the file which contains the execution data. -->
+                                    <dataFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</dataFile>
+                                    <!-- Sets the output directory for the code coverage report. -->
+                                    <outputDirectory>${project.reporting.outputDirectory}/jacoco-ut</outputDirectory>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <!-- Surefire for unit tests only -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>${surefire.version}</version>
+                        <configuration>
+                            <!-- Sets the VM argument line used when unit tests are run. -->
+                            <argLine>${surefireArgLine}</argLine>
+                            <trimStackTrace>false</trimStackTrace>
+                            <includes>
+                                <include>**/*Test.java</include>
+                                <include>**/Test*.java</include>
+                            </includes>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>

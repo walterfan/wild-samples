@@ -36,6 +36,10 @@ public class MessageConfig {
         return new MessageService();
     }
 
+    @Bean
+    public MessageProperties messageProperties()  {
+        return new MessageProperties();
+    }
 
 
     @Bean
