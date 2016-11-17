@@ -1,5 +1,9 @@
 package com.github.walterfan.guestbook.domain;
 
+
+import org.hibernate.validator.constraints.NotBlank;
+
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 /**
@@ -7,8 +11,11 @@ import java.util.Date;
  */
 public class Message extends BaseObject {
     private String id;
+    @NotBlank
     private String title;
+    @NotBlank
     private String content;
+    @NotNull
     private Author author;
     private String tags;
     private Date createTime;

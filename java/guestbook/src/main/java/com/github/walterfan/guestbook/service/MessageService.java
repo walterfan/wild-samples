@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by walter on 06/11/2016.
@@ -18,6 +19,8 @@ public class MessageService {
     private MessageDao messageDao;
 
     public void createMessage(Message message) {
+        UUID id = UUID.randomUUID();
+        message.setId(id.toString());
         messageDao.createMessage(message);
     }
 

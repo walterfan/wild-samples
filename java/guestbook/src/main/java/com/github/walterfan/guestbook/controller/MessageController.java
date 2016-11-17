@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -32,7 +33,7 @@ public class MessageController {
 
 
     @RequestMapping(value = "/messages", method = RequestMethod.POST)
-    public Message createMessage(@RequestBody Message message) throws Exception {
+    public Message createMessage(@Valid @RequestBody Message message) throws Exception {
         logger.info("got post request: " + message.toString());
         messageService.createMessage(message);
         return message;
