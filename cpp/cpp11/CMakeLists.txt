@@ -1,4 +1,4 @@
-project( cpp11sample )
+project( cpp11test )
 cmake_minimum_required( VERSION 2.8 )
 
 
