@@ -1,4 +1,6 @@
 target/
+.idea/
+venv/
 *.o
 *.class
 .classpath
@@ -17,3 +19,5 @@ buildNumber.properties
 *.vpw
 *.vpwhistu
 *.vtg
+*.pyc
+

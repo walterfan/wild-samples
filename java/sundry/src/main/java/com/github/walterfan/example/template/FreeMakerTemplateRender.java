@@ -121,13 +121,13 @@ public class FreeMakerTemplateRender {
         Map<String, Object> input = new HashMap<String, Object>();
         input.put("primaryText", "Walter FTL example");
         input.put("number", new PstnNumber("Java object", CountryCode.CN, false));
-        input.put("common_name", "Walter");
+        input.put("name", "Walter");
 
         //FreeMakerTemplateRender render = new FreeMakerTemplateRender();
         //String output = render.renderAsTemplateName(input, "sample.ftl");
         //System.out.println(output);
 
-        String content = "hello ${common_name}";
+        String content = "hello ${name}";
         //output = render.renderAsTemplateContent(input, content);
         //System.out.println(output);
 
