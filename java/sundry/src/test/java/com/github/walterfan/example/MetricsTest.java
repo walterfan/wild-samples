@@ -1,5 +1,6 @@
 package com.github.walterfan.example;
 
+
 import com.codahale.metrics.MetricRegistry;
 
 /**

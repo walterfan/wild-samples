@@ -4,6 +4,7 @@ import com.google.common.base.Stopwatch;
 import com.google.common.collect.ImmutableSet;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
@@ -41,6 +42,7 @@ public class App
 
         System.out.println(UUID.randomUUID().toString());
 
+        Comparator<String> cmp = (x, y) -> x.compareToIgnoreCase(y);
         //new Date()
     }
 }
