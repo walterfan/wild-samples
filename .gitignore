@@ -1,6 +1,9 @@
+bld/
+bin/
 target/
 .idea/
 venv/
+.project
 *.o
 *.class
 .classpath
@@ -20,4 +23,6 @@ buildNumber.properties
 *.vpwhistu
 *.vtg
 *.pyc
-
+cmake_install.cmake
+CMakeCache.txt
+CMakeFiles/

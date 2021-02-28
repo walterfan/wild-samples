@@ -42,7 +42,14 @@ public class App
 
         System.out.println(UUID.randomUUID().toString());
 
-        Comparator<String> cmp = (x, y) -> x.compareToIgnoreCase(y);
+        double d1 = 0.001;
+        double d2 = 0.002;
+
+        long l1 = 1L;
+        long l2 = 2L;
+
+        System.out.println(Double.compare(d1, d2) + " should be < 0");
+        System.out.println(Long.compare(l1, l2) + " should be < 0");
         //new Date()
     }
 }
