@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="2" failures="0" disabled="0" errors="0" timestamp="2017-09-28T17:28:21" time="0.019" name="AllTests">
+  <testsuite name="CTinyCharTest" tests="2" failures="0" disabled="0" errors="0" time="0.019">
+    <testcase name="TrendlineDiagram" status="run" time="0.01" classname="CTinyCharTest" feature="CTinyCharTest" scenario="Draw a trendline diagram" given="X Scales for 2 weeks, Y Scales with different values" when="set title, labels and values " then="draw and write image" checkpoints=" write a png file " />
+    <testcase name="DistributionDiagram" status="run" time="0.009" classname="CTinyCharTest" feature="CTinyCharTest" scenario="Draw a trendline diagram" given="X scales are 8 countries, Y Scales with different values " when="set title, labels and values " then="draw and write image" checkpoints=" write a png file " />
+  </testsuite>
+</testsuites>

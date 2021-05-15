@@ -1,0 +1,35 @@
+import os
+#brew install openssl, brew link openssl --force, libsrtp: make & make install
+LIB_PATH = ['/usr/lib', '/usr/local/lib', '/usr/local/opt/openssl/lib', './lib', './bin']
+
+env = Environment(TARGET_ARCH='x86')
+
+env.Append( CPPPATH=['./src', './util', '/usr/include', 'exam/algo', '/usr/local/opt/openssl/include'])
+
+env.Library('./lib/tinyutil', ['./util/TinyUtil.cpp', 
+    './util/TinyTimer.cpp', 
+    './util/TinyServer.cpp', 
+    './util/TinyClient.cpp',
+    './util/TinyChart.cpp', 
+    './util/TinyRio.cpp'])
+
+hfrtc=env.Program(target='./bin/hfrtc', source=['./src/hfrtc.cpp'], LIBS = ['tinyutil', 'pthread'], LIBPATH = LIB_PATH)
+
+sha256=env.Program(target='./bin/sha256', source=['./test/sha256.cpp'], LIBS=['ssl', 'crypto'], LIBPATH = LIB_PATH)
+
+echoserver=env.Program(target='./bin/echoserver', source=['./exam/libevent/echo_server.cpp'], 
+	LIBS = ['tinyutil', 'pthread', 'event'], LIBPATH = LIB_PATH)
+
+waltertest=env.Program(target='./bin/waltertest', source=['./test/waltertest.cpp'], 
+    LIBS = ['tinyutil', 'pthread', 'srtp2'], LIBPATH = LIB_PATH)
+
+SpiderMonkeyTest=env.Program(target='./bin/SpiderMonkeyTest', source=['./exam/js/SpiderMonkeyTest.cpp'], 
+    LIBS = ['js_static', 'pthread','z'], LIBPATH = LIB_PATH, CPPPATH = ['/usr/local/include/mozjs-45'], CCFLAGS = '-Wall -g -O1 -static -std=c++11 ')
+
+unittest=env.Program(target='./bin/unittest', source=['./test/UnitTest.cpp', './test/BaseTestCase.cpp', './test/TinyChartTest.cpp'], 
+    LIBS = ['tinyutil', 'pthread', 'gd', 'gmock'], LIBPATH = LIB_PATH)
+
+curltest=env.Program(target='./bin/curltest', source=['./exam/curl/curl_exam_1.cpp'], 
+    LIBS = ['curl', 'pthread'], LIBPATH = LIB_PATH)
+
+Default(hfrtc, waltertest, unittest, curltest)
