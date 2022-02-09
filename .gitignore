@@ -1,9 +1,12 @@
 .deps/
+.vs/
 bld/
+out/
 bin/
 target/
 .idea/
 venv/
+*.opendb
 .project
 *.o
 *.class
