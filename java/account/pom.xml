@@ -33,7 +33,7 @@
         <javamail.version>1.5.1</javamail.version>
         <servlet.version>3.0.1</servlet.version>
         <apache.commons.version>3.1</apache.commons.version>
-        <spring.version>4.2.3.RELEASE</spring.version>
+        <spring.version>4.2.7.RELEASE</spring.version>
         <spring.retry.version>1.0.3.RELEASE</spring.retry.version>
         <spring.security.version>3.2.8.RELEASE</spring.security.version>
         <logback.version>1.2.0</logback.version>
